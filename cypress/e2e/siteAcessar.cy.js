@@ -1,16 +1,26 @@
-import dados from '../dados/dados.json'
+describe('Acessar o site', () => {
 
-describe('Criar conta na Lacrei Saúde', () => {
+  it('Acessando site da Lacrei Saúde', () => {
+    //Fazer login no sistema
+    cy.login()
+  })
 
-  it.only('Acessando site da Lacrei Saúde', () => {
-    //Acesso ao site da Lacrei Saúde e validação se o usuário foi direcionado para a página certa
-    cy.visit('https://frontend-lacrei-pessoa-usuaria.vercel.app/')
-    cy.contains('h2', 'Boas-vindas à Lacrei Saúde').should('be.visible')
-    //Preenchimento dos dados (conforme informações colocados no arquivo 'dados.json)
-    cy.get('#email').type(dados.user.email)
-    cy.get('#password').type(dados.user.senha)
-    //Clique no "Enviar" e validação se o usuário foi direcionado para a página certa
-    cy.get('button[type="submit"]').click()
-    cy.contains('h2', 'Boas-vindas à Lacrei Saúde, continue o seu cadastro').should('be.visible')
+  it('Continuando o cadastro', () => {
+    //Fazer login no sistema
+    cy.login()
+    //Clique em continuar o cadastro e validar se foi aberta a tela certa
+    cy.contains('button', 'Continuar cadastro').click()
+    cy.contains('h2', 'Com qual pronome você se identifica?').should('be.visible')
+    //Preenchimento das informações
+    cy.contains('a/Ela/Dela').click()
+    cy.contains('p', '2').click()
+    cy.contains('Branca').click()
+    cy.contains('p', '3').click()
+    cy.contains('Mulher Cis').click()
+    cy.contains('p', '4').click()
+    cy.contains('Heterossexual').click()
+    cy.contains('p', '5').click()
+    //Conclusão do cadastro
+    cy.contains('button', 'Concluir cadastro').click()
   })
 })

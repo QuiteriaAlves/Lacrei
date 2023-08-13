@@ -1,28 +1,39 @@
 **Readme**
 
-*** Para iniciar esse teste, é necessário acessar, na pasta 'cypress' > 'dados', o arquivo 'dados.json' e colocar os dados para esse teste.
-
 *Esse projeto foi desenvolvido como critério de aprovação para o processo para voluntária na vaga da QA Lead da Lacrei Saúde*
 
-Versao do projeto: 1.0.0
+***Para iniciar esse teste, é necessário acessar a pasta 'cypress' > 'dados', e, no arquivo 'dados.json', colocar os dados para esse teste.***
 
-Versões utilizadas:
+***Versao do projeto: 1.0.0***
+
+***Versões utilizadas:***
   Cypress: 12.17.3
   Node.js: v18.15.0
 
-Estutura do projeto:
+***Estutura do projeto:***
 
-1 - Na pasta 'cypress', há a pasta 'dados', com o arquivo 'dados.json'. Nele, temos um atributo para todos os dados necessários para esses testes (tanto para a criação de conta como para o acesso ao site) e, para esses testes, basta colocar os dados necessários.
+- cypress > dados > dados.json: nele, serão colocados os dados de um novo usuário para serem usados no teste para 'Criar conta' e 'Acessar o site'. Nesse arquivo, temos um atributo para cada dado necessário para os testes citados acima e, para eles, basta colocar os dados necessários.
 
-2 - Como teste automatizado é usado para garantir que a principal funcionalidade não foi "quebrada" pelas futuras implementações, os testes contemplados nesse projeto é apenas o "caminho feliz", isso é, a efetiva criação da conto e o efetivo acesso ao site.
+- cypress > e2e > camposObrigatorios.cy.js: nesse arquivo, é encontrado o teste necessário para verificar a obrigatoriedade do preenchimento dos campos e da marcação dos checkboxes na crição de uma nova conta;
 
-Observação: os demais casos de testes poderão ser feitas de forma manual. Visto que se trata das demais regras.
+- cypress > e2e > criarConta.cy.js: nesse arquivo, é encontrado o teste necessário para verificar a efeetiva crição de uma nova conta, isso é, com todos os dados preenchivos e válidos, além da marcação dos checkboxes;
 
-Atenção!!! Coloquei alguns comentários no código (mesmo não vendo como uma boa prática como coloquei) para ajudar na conferência e na visulização de como criei o código.
+- cypress > e2e > siteAcessar.cy.js: nesse arquivo, é encontrado o teste necessário para validar o acesso ao site e continuar o cadastro de um novo uduário;
 
-3 - Foi mantida a pasta 'support' por ser uma parta padrão do cypress.
+- cypress > support > e2e.js: foram criados dois comandos personalziados que são usados por mais de um teste. Com isso, em caso de uma manutenção, fica mais fácil.
 
-4 - Foi desativada as opções de criação dos vídeos e do screenshots.
+***Atenção!!!***
+
+Coloquei alguns comentários no código (mesmo não vendo como uma boa prática como coloquei) para ajudar na conferência e na visulização de como criei o código.
+
+***Observações:***
+
+1 - Como teste automatizado é usado para garantir que a principal funcionalidade não foi "quebrada" pelas futuras implementações, os testes contemplados, aqui, são apenas os mais básicos. Temos o "caminho feliz", isso é, a efetiva criação da conta, o efetivo acesso ao site e a afetiva continuidade do cadastro e o seu "extremo", isso é, quando nenhum dados é colocado no momento de criação de uma nova conta.
+
+Observação: os demais casos de testes poderão ser feitas de forma manual, visto que se trata das demais regras e proteções.
+
+2 - Foi desativada as opções de criação dos vídeos e do screenshots.
+
 Caso queira habilitar essas opções, vá em 'cypress.config.js' e retire as linhas:
 
   video: false,
