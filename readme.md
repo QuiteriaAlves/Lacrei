@@ -40,14 +40,3 @@ Caso queira habilitar essas opções, vá em 'cypress.config.js' e retire as lin
 
   video: false,
   screenshotOnRunFailure: false
-
-Ficando:
-
-const { defineConfig } = require('cypress')
-
-module.exports = defineConfig({
-  e2e: {
-    baseUrl: 'http://localhost',
-  },
-  fixturesFolder: false
-})
