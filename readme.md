@@ -39,4 +39,5 @@ Observação: os demais casos de testes poderão ser feitas de forma manual, vis
 Caso queira habilitar essas opções, vá em 'cypress.config.js' e retire as linhas:
 
   video: false,
+
   screenshotOnRunFailure: false
