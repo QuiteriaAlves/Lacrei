@@ -1,8 +1,8 @@
 {
     "user": {
-        "nome": " ",
-        "sobrenome": " ",
-        "email": " ",
-        "senha": " "
+        "nome": "",
+        "sobrenome": "",
+        "email": "",
+        "senha": ""
     }
 }

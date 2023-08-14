@@ -6,7 +6,9 @@ describe('Criar conta na Lacrei Saúde', () => {
 
   it('Criando conta na Lacrei Saúde', () => {
     //Acessando a tela de cadastro da conta
-    cy.acessarCadastro()
+    cy.acessar()
+    //Acessando a opçao "Criar conta"
+    cy.contains('button', 'Criar conta').click()
     //Preenchimento dos dados (conforme informações colocados no arquivo 'dados.json')
     cy.get('#first_name').type(dados.user.nome)
     cy.get('#last_name').type(dados.user.sobrenome)
@@ -25,8 +27,7 @@ describe('Criar conta na Lacrei Saúde', () => {
     cy.contains('As senhas devem ser iguais').should('have.css', 'color', 'rgb(1, 135, 98)')
     //Envio e validação se o usuário foi direcionado para a página certa
     cy.contains('button', 'Cadastrar').click()
+    cy.wait(200)
     cy.contains('h2', 'Estamos quase lá...').should('be.visible')
-    //Voltar para a tela de início
-    cy.contains('button', 'Ir para início').click()
   })
 })

@@ -1,13 +1,30 @@
+import dados from '../dados/dados.json'
+
 describe('Acessar o site', () => {
 
-  it('Acessando site da Lacrei Saúde', () => {
+  beforeEach('Logar', () => {
     //Fazer login no sistema
-    cy.login()
+    cy.acessar()
+  })
+
+  it('Acessando site da Lacrei Saúde', () => {
+    //Preenchendo os dados
+    cy.get('#email').type(dados.user.email)
+    cy.get('#password').type(dados.user.senha)
+    //Envio do formulário
+    cy.get('button[type="submit"]').click()
+    //Validação se o usuário foi direcionado para a página certa
+    cy.contains('h2', 'Boas-vindas à Lacrei Saúde, continue o seu cadastro').should('be.visible')
   })
 
   it('Continuando o cadastro', () => {
-    //Fazer login no sistema
-    cy.login()
+    //Preenchimento dos dados (conforme informações colocados no arquivo 'dados.json')
+    cy.get('#email').type(dados.user.email)
+    cy.get('#password').type(dados.user.senha)
+    //Envio do formulário
+    cy.get('button[type="submit"]').click()
+    //Validação se o usuário foi direcionado para a página certa
+    cy.contains('h2', 'Boas-vindas à Lacrei Saúde, continue o seu cadastro').should('be.visible')
     //Clique em continuar o cadastro e validar se foi aberta a tela certa
     cy.contains('button', 'Continuar cadastro').click()
     cy.contains('h2', 'Com qual pronome você se identifica?').should('be.visible')

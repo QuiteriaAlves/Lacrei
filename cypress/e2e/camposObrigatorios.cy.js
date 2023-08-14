@@ -2,7 +2,9 @@ describe('Verificar obrigatoriedade de preenchimento dos campos', () => {
 
     it('Verificando obrigatoriedade de preenchimento dos campos', () => {
         //Acessando a tela de cadastro da conta
-        cy.acessarCadastro()
+        cy.acessar()
+        //Acessando a opçao "Criar conta"
+        cy.contains('button', 'Criar conta').click()
         //Clicar em Cadastro sem preencher nenhum campo
         cy.contains('button', 'Cadastrar').click()
         //Validação da obrigatoriedade dos campos iniciais
