@@ -1,10 +1,10 @@
-describe('Verificar obrigatoriedade de preenchimento dos campos', () => {
+describe('Verificar obrigatoriedade dos campos', () => {
 
-    it('Verificando obrigatoriedade de preenchimento dos campos', () => {
+    it('Verificando obrigatoriedade dos campos', () => {
         //Acessando a tela de cadastro da conta
         cy.acessar()
         //Acessando a opçao "Criar conta"
-        cy.contains('button', 'Criar conta').click()
+        cy.contains('button', 'Cadastrar').click()
         //Clicar em Cadastro sem preencher nenhum campo
         cy.contains('button', 'Cadastrar').click()
         //Validação da obrigatoriedade dos campos iniciais
@@ -16,7 +16,7 @@ describe('Verificar obrigatoriedade de preenchimento dos campos', () => {
         cy.contains('Letra maiúscula').should('have.css', 'color', 'rgb(236, 14, 0)')
         cy.contains('Letra minúscula').should('have.css', 'color', 'rgb(236, 14, 0)')
         cy.contains('Número').should('have.css', 'color', 'rgb(236, 14, 0)')
-        cy.contains('Caractere especial (ex: #!*-_&)').should('have.css', 'color', 'rgb(236, 14, 0)')
+        cy.contains('Caractere especial').should('have.css', 'color', 'rgb(236, 14, 0)')
         cy.contains('As senhas devem ser iguais').should('have.css', 'color', 'rgb(236, 14, 0)')
         //Validação da obrigatoriedade da marcação dos checkboxes
         cy.contains('Você deve aceitar os termos.').should('be.visible').should('have.css', 'color', 'rgb(236, 14, 0)')

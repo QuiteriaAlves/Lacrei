@@ -2,42 +2,51 @@
 
 *Esse projeto foi desenvolvido como critério de aprovação para o processo para voluntária na vaga da QA Lead da Lacrei Saúde*
 
-***Para iniciar esse teste, é necessário acessar a pasta 'cypress' > 'dados', e, no arquivo 'dados.json', colocar os dados para esse teste.***
+***Para iniciar esse teste, é necessário acessar a pasta 'cypress' > 'dados', e, no arquivo 'dados.json', colocar um email e uma senha senha.***
+
+A senha tem que ter pelo menos um caracter especial, uma letra mainuscula, uma letra minúscula, um número e conter, no mínimo, 8 caracteres.
+
+  {
+    "user": {
+        "nome": "Nome",
+        "sobrenome": "Sobrenome",
+        "email": "",
+        "senha": ""
+    }
+}
 
 ***Versao do projeto:*** 1.0.0
 
 ***Versões utilizadas:***
-  Cypress: 12.17.3
-  Node.js: v18.15.0
+  Cypress: 14.0.3
+  mpn: 10.9.2
+  Node.js: v22.13.1
 
 ***Estutura do projeto:***
 
-- cypress > dados > dados.json: nele, serão colocados os dados de um novo usuário para serem usados no teste para 'Criar conta' e 'Acessar o site'. Nesse arquivo, temos um atributo para cada dado necessário para os testes citados acima e, para eles, basta colocar os dados necessários.
+- cypress > dados > dados.json: nele, serão colocados os dados de um novo usuário para serem usados no teste para 'Criar conta', para demostração desse recurso (alocar dados à parte do código).
 
-- cypress > e2e > camposObrigatorios.cy.js: nesse arquivo, é encontrado o teste necessário para verificar a obrigatoriedade do preenchimento dos campos e da marcação dos checkboxes na crição de uma nova conta;
+- cypress > e2e > camposObrigatorios.cy.js: teste necessário para verificar a obrigatoriedade dos campos e da marcação dos checkboxes na crição de uma nova conta;
 
-- cypress > e2e > criarConta.cy.js: nesse arquivo, é encontrado o teste necessário para verificar a efeetiva crição de uma nova conta, isso é, com todos os dados preenchivos e válidos, além da marcação dos checkboxes;
+- cypress > e2e > criarConta.cy.js: teste necessário para verificar a efetiva criação de uma conta, isso é, com todos os dados preenchivos e válidos, além da marcação dos checkboxes;
 
-- cypress > e2e > siteAcessar.cy.js: nesse arquivo, é encontrado o teste necessário para validar o acesso ao site e continuar o cadastro de um novo uduário;
-
-Observação: os demais casos de testes poderão ser feitas de forma manual. Visto que se trata das demais regras.
-
-- cypress > support > e2e.js: foram criados dois comandos personalziados que são usados por mais de um teste. Com isso, em caso de uma manutenção, fica mais fácil.
+- cypress > support > e2e.js: foi criado um comando personalizado para demonstração desse recurso.
 
 ***Atenção!!!***
 
-Coloquei alguns comentários no código (mesmo não vendo como uma boa prática como coloquei) para ajudar na conferência e na visulização de como criei o código.
+Coloquei alguns comentários no código (mesmo não vendo como uma boa prática) para ajudar na conferência e na visulização de como criei o código.
 
-***Observações:***
+Foi desativada as opções de criação dos vídeos e do screenshots. Caso queira habilitar essas opções, vá em 'cypress.config.js' e coloque a informação de true como informado abaixo.
 
-1 - Como teste automatizado é usado para garantir que a principal funcionalidade não foi "quebrada" pelas futuras implementações, os testes contemplados, aqui, são apenas os mais básicos. Temos o "caminho feliz", isso é, a efetiva criação da conta, o efetivo acesso ao site e a afetiva continuidade do cadastro e o seu "extremo", isso é, quando nenhum dados é colocado no momento de criação de uma nova conta.
+const { defineConfig } = require('cypress')
 
-Observação: os demais casos de testes poderão ser feitas de forma manual, visto que se trata das demais regras e proteções.
-
-2 - Foi desativada as opções de criação dos vídeos e do screenshots.
-
-Caso queira habilitar essas opções, vá em 'cypress.config.js' e retire as linhas:
-
-  video: false,
-
+module.exports = defineConfig({
+  e2e: {
+    baseUrl: 'https://frontend-lacrei-pessoa-usuaria.vercel.app/',
+  },
+  viewportWidth: 1280,
+  viewportHeight: 720,
+  fixturesFolder: true,
+  video: true,
   screenshotOnRunFailure: false
+})

@@ -1,6 +1,6 @@
 import dados from '../dados/dados.json'
 
-describe('Criar conta na Lacrei Saúde', () => {
+describe('Cadastro completo no site da Lacrei Saúde', () => {
 
   const senha = dados.user.senha
 
@@ -8,7 +8,7 @@ describe('Criar conta na Lacrei Saúde', () => {
     //Acessando a tela de cadastro da conta
     cy.acessar()
     //Acessando a opçao "Criar conta"
-    cy.contains('button', 'Criar conta').click()
+    cy.contains('button', 'Cadastrar').click()
     //Preenchimento dos dados (conforme informações colocados no arquivo 'dados.json')
     cy.get('#first_name').type(dados.user.nome)
     cy.get('#last_name').type(dados.user.sobrenome)
@@ -23,11 +23,12 @@ describe('Criar conta na Lacrei Saúde', () => {
     cy.contains('Letra maiúscula').should('have.css', 'color', 'rgb(1, 135, 98)')
     cy.contains('Letra minúscula').should('have.css', 'color', 'rgb(1, 135, 98)')
     cy.contains('Número').should('have.css', 'color', 'rgb(1, 135, 98)')
-    cy.contains('Caractere especial (ex: #!*-_&)').should('have.css', 'color', 'rgb(1, 135, 98)')
+    cy.contains('Caractere especial').should('have.css', 'color', 'rgb(1, 135, 98)')
     cy.contains('As senhas devem ser iguais').should('have.css', 'color', 'rgb(1, 135, 98)')
     //Envio e validação se o usuário foi direcionado para a página certa
     cy.contains('button', 'Cadastrar').click()
     cy.wait(200)
     cy.contains('h2', 'Estamos quase lá...').should('be.visible')
+    cy.contains('button', 'Voltar ao login').click()
   })
 })
