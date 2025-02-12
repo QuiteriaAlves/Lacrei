@@ -1,25 +1,27 @@
-# Informações sobre esse projeto
+***Informações sobre esse projeto***
 
 Ele foi desenvolvido como critério de aprovação para o processo de voluntária na vaga de QA Lead da Lacrei Saúde.
 
-# Atenção!!!
+## Atenção!!!
 
-***Para iniciar esse teste, é necessário acessar a pasta `cypress` > `dados`, e, no arquivo `dados.json`, colocar um email e uma senha.***
+***Para esses testes, é necessário acessar a pasta `cypress` > `dados` > `dados.json`, no Visual Studio, e colocar um e-mail e uma senha. Caso necessário, suba a arquivo para o Git Hub.***
 
-A senha tem que ter pelo menos um caractere especial, uma letra maiúscula, uma letra minúscula, um número e conter, no mínimo, 8 caracteres.
+***A senha tem que ter pelo menos um caractere especial, uma letra maiúscula, uma letra minúscula, um número e conter, no mínimo, 8 caracteres.***
+
+Exemplo:
 
 ```json
 {
   "user": {
     "nome": "Nome",
     "sobrenome": "Sobrenome",
-    "email": "",
-    "senha": ""
+    "email": "cypress@provedor.com.br",
+    "senha": "#Cyp1234"
   }
 }
 ```
 
-Mas, depois, lembre-se de retirar esses dados.
+***Mas depois dos testes, lembre-se de retirar esses dados da pasta `cypress` > `dados` > `dados.json`, no Visual Studio. Nesse momento, não é necessário subir o arquivo para o Github.***
 
 ***Versão do projeto: 1.0.0***
 
